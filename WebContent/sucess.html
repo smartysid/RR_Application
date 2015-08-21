@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Shetty's Diner</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/SD.ico">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+<br><br><br>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Shetty's Diner</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--end navbar -->
+
+
+        </div><!--end container-->
+    </nav>
+</header>
+<br><br><br>
+<!--- Login Modal Popup --->
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Loginexample">Are you Sure ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Click on Yes and we will log you out of the system</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Nope</button>
+                    <button type="submit" class="btn btn-primary" onclick="location.href='Home.html'">Yes I am Sure</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">Reservation Request Submitted</div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                             <label  class="control-label"> Your Reservation Request has been Sent</label></div>
+                        </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label  id="ReservationAck" class="control-label"> Reservation Acknowledgment No : #12343</label></div>
+            </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label  class="control-label"> You will be informed in case of any changes in plan</label></div>
+                    </div>
+
+            <div class="panel-footer">
+                <button type="button" class="btn btn-success" onclick="location.href='Home.html'">Return Home</button>
+                *Reservations Modified Need to be confirmed by Management Before Being Approved
+            </div>
+        </div>
+    </div>
+</section>
+<footer></footer>
+
+<!-- JavaScripts libraries-->
+<script type="text/javascript" src="scripts/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+	   
+	   var qr = window.location.search;
+	   var sp = qr.substring(1);
+	   var queryvalue = sp.split('=');
+	   var  id=queryvalue[0];
+	   var comment=queryvalue[1];
+	   //alert(id + " " + comment);
+	   
+      $('#ReservationAck').text(" Reservation Acknowledgement Confirmation ID : " +comment);
+   });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Shetty's Diner</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/SD.ico">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+<br><br><br>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Shetty's Diner</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#" data-toggle="modal" data-target="#Logout" >Logout</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--end navbar -->
+
+
+        </div><!--end container-->
+    </nav>
+</header>
+<br><br><br>
+<!--- Login Modal Popup --->
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Loginexample">Are you Sure ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Click on Yes and we will log you out of the system</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Nope</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='Home.html'">Yes I am Sure</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<section>
+    <div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Current">Current Reservations - Map</a></li>
+        <li><a data-toggle="tab" href="#CurrentGrid">Current Reservations - Grid</a></li>
+        <li><a data-toggle="tab" href="#Stock">Stock</a></li>
+    </ul>
+    <div class="tab-content">
+
+ <div class="modal fade" id="ModifyBooking" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <form>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="ModifyBookingTitle">Modify Reservation</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label  class="control-label">Customer First Name</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control" id="fname" value="Rajesh" required></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label  class="control-label">Customer Last Name</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control" id="lname" value="Shetty" required></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label  class="control-label">Customer Email</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="email" class="form-control" id="Cemail" value="Shetty@shetty.com" required></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label class="control-label">Customer Contact #</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="tel" class="form-control" id="Ctel" value="1234567890" required></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label  class="control-label">Customer Party Size #</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="text" class="form-control" id="CPartySize" value="10" maxlength="2"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="CRequest" value="No special Request" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label class="control-label">Date of Reservation</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="date" class="form-control" id="Cdate" value="02/01/2015" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label class="control-label">Time Slot Desired</label></div>
+                                        <div class="col-xs-8">
+                                            <input type="time" class="form-control" id="Ctime" value="12:15:AM" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <input type="checkbox" class="form-control" id="Cautoassign" checked></div>
+                                        <div class="col-xs-10">
+                                            <h4>Change Current Table and Auto Assign</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnAdminCancel" type="button" class="btn btn-danger">Cancel Reservation</button>
+                                <button id="btnAdminModify" type="button" class="btn btn-success" >Modify Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        <div id="Current" class="tab-pane fade in active">
+
+            <!-- Nav Piils of No use now
+            <div class="contianer">
+
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="tab" href="#Floor1">Floor 1</a></li>
+                <li class="active"><a data-toggle="tab" href="#Floor2">Floor 2</a></li>
+                <li class="active"><a data-toggle="tab" href="#Floor3">Floor 3</a></li>
+                <li class="active"><a data-toggle="tab" href="#Terrace">Floor 4</a></li>
+            </ul>
+
+
+            <div class="tab-content">
+            <div id="Floor1" class="tab-pane fade">
+                <p>This is Floor 1</p>
+            </div>
+            <div id="Floor2" class="tab-pane fade">
+                <p>This is Floor 2</p>
+            </div>
+            <div id="Floor3" class="tab-pane fade">
+                <p>This is Floor 3</p>
+            </div>
+            <div id="Floor4" class="tab-pane fade">
+                <p>This is Floor 4</p>
+            </div>
+            <div id="Terrace" class="tab-pane fade">
+                <p>Terrace here</p>
+            </div>
+                </div>
+            </div>
+             -->
+<!-- Table that was used before but div looks much better
+            <div id="Floor1Details" class="container">
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Floor1</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a href="#" data-toggle="modal" data-target="#AddBooking"><span class="glyphicon glyphicon-unchecked" ></span></a></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><a href="#" data-toggle="modal" data-target="#ModifyBooking"><span class="glyphicon glyphicon-sound-dolby"></span></a></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-unchecked" ></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-sound-dolby"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-sound-dolby"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-unchecked" ></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-sound-dolby"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                    <td><span class="glyphicon glyphicon-unchecked"></span></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            -->
+
+            <div id="FloorCols1" class="container">
+                <div class="row">
+                <h2>Floor 1 Seating</h2>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-sm-2" ><a href="#" ><span id="1" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="2" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="3" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="4" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="5" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="6" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="7" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="8" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="9" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="10" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="11" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="12" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="13" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="14" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="15" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="16" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="17" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="18" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="19" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="20" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="21" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="22" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="23" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="24" class="glyphicon glyphicon-unchecked" ></span></a></div>                
+                </div>
+
+                <div class="row">
+                         <div class="col-sm-2" ><a href="#" ><span id="25" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="26" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="27" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="28" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="29" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="30" class="glyphicon glyphicon-unchecked" ></span></a></div>     
+                </div>
+            </div>
+
+            <div id="FloorCols2" class="container">
+                <div class="row">
+                    <h2>Floor 2 Seating</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="31" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="32" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="33" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="34" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="35" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="36" class="glyphicon glyphicon-unchecked" ></span></a></div>     
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="37" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="38" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="39" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="40" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="41" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="42" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="43" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="44" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="45" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="46" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="47" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="48" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="49" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="50" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="51" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="52" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="53" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="54" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2" ><a href="#" ><span id="55" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="56" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="57" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="58" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="59" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                    <div class="col-sm-2" ><a href="#" ><span id="60" class="glyphicon glyphicon-unchecked" ></span></a></div>
+                </div>
+            </div>
+
+           
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--- Admin Add New Booking Modal Popup --->
+            <div class="modal fade" id="AddBooking" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <form>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="AddB">Place A Reservation</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="firstname" placeholder="Guest First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="lastname" placeholder="Guest Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Guest Email Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                    <div class="col-xs-6">
+                                    <input type="tel" class="form-control" id="tel" placeholder="YourContactNumber" maxlength="10" required></div>
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control" id="Size" placeholder="Your Gang Size" maxlength="2"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="Request" placeholder="AnySpecialRequest" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <label for="recipient-name" class="control-label">Date of Reservation</label></div>
+                                        <div class="col-xs-6">
+                                            <input type="date" class="form-control" id="date" placeholder="MM/DD/YY" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <div class="row">
+                                            <div class="col-xs-6">
+                                                <label for="recipient-name" class="control-label">Time Slot Desired</label></div>
+                                            <div class="col-xs-6">
+                                                <input type="time" class="form-control" id="time" placeholder="HH:MM:SS" required>
+                                            </div>
+                                 </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <input type="checkbox" class="form-control" id="autoassign" checked></div>
+                                        <div class="col-xs-10">
+                                            <h4>Auto Assign Tables</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                <button id="btnReserve" type="submit" class="btn btn-success" >Confirm Booking</button>
+                            </div>
+                            </div>
+                    </form>
+                </div>
+
+                </div>
+
+            <!-- Admin Modify Booking Modal Popup-->
+
+           
+
+        </div>
+
+        <div id="CurrentGrid" class="tab-pane fade">
+            <h1>Floor1</h1>
+            <div class="container">
+                <table id="AdminTable" class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Confirmation #</th>
+                        <th>Table 1D</th>
+                        <th>First Name</th>
+                        <th>LastName</th>
+                        <th>EmailID</th>
+                        <th>Contact Number</th>
+                        <th>Modify</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <div id="Stock" class="tab-pane fade">
+            <h1>Stock Information</h1>
+            <div class="container">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Stock Item</th>
+                        <th>Quantity</th>
+                        <th>Request</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-glass" ></span></button></td>
+                        <td>52</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-tint" ></span></button></td>
+                        <td>120</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-fire" ></span></button></td>
+                        <td>100</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-paperclip" ></span></button></td>
+                        <td>54</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-cutlery" ></span></button></td>
+                        <td>22</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-asterisk" ></span></button></td>
+                        <td>21</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="btn-lg"><span class="glyphicon glyphicon-gift" ></span></button></td>
+                        <td>13</td>
+                        <td>
+                            <button type="button" class="btn btn-lg btn-info">Request More Stock</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+</div>
+
+        </div>
+    </div>
+</section>
+<footer></footer>
+
+<!-- JavaScripts libraries-->
+<script type="text/javascript" src="scripts/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
+<script async src="scripts/main.js"></script>
+<script async src="scripts/admin.js"></script>
+
+</body>
+
+</html>

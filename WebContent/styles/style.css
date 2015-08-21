@@ -1,0 +1,50 @@
+html {
+    background: #000000;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+body {
+    font-family:'PT Sans', sans-serif;
+    background: none;
+}
+section {
+    margin: 30px 0;
+}
+.container {
+    font-size: 0.9em;
+}
+#home {
+    max-width: 750px;
+}
+
+span.glyphicon-unchecked {
+    font-size: 4em;
+}
+
+.table>tbody>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+.tab-content {
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 10px #FF0;
+}
+
+span.glyphicon-sound-dolby {
+    font-size: 4em;
+}
+.divcover
+{
+    background-image: url(../images/img.jpg);
+    background-size: 100%;
+}
+
+.homepage
+{   position: relative;
+    background-size: cover;
+    heigh:40%;
+
+}

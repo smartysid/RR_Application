@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Shetty's Diner</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/SD.ico">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+<br><br><br>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Shetty's Diner</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#contact" id = "list_add" data-toggle="modal" data-target="#AddBooking" >Reserve Seats</a></li>
+                    <li><a href="#contact" id="list_modify" data-toggle="modal" onclick="location.href='Modify.html' ">Modify Reservation</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#contact" data-toggle="modal" data-target="#Login" >Login</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--end navbar -->
+        </div><!--end container-->
+    </nav>
+</header>
+
+<!--- Modify Modal Popup --->
+<div class="modal fade" id="Modify" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Modifyexample">Provide Your Email ID </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="Memail" placeholder="Guest Email Address" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="location.href='Modify.html'">Yes I Need To Modiy</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--- Login Modal Popup --->
+<div class="modal fade" id="Login" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Loginexample">Sign In</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtuser" placeholder="Your User Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="txtpass" placeholder="Your Password" required>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button id="btnLogin" type="button" class="btn btn-primary" >Sign In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section>
+<div class="container">
+    <div class="homepage">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="images/img.jpg" alt="Img"  width=100%>
+            <div class="carousel-caption">
+                <h3>Special Hyderabadi Biryani</h3>
+                <p><button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#AddBooking">Try it Now</button></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/img2.jpg" alt="Img"  width=100%>
+            <div class="carousel-caption">
+                <h3>Delicious Prawns Fry</h3>
+                <p><button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#AddBooking">Try it Now</button></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/img3.jpg" alt="Img"  width=100%>
+            <div class="carousel-caption">
+                <h3>Chef Special Paneer Mutter</h3>
+                <p><button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#AddBooking">Try it Now</button></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/img4.jpg" alt="Img"  width=100%>
+            <div class="carousel-caption">
+                <h3>Stop Seeking Answers. Seek Kebab !</h3>
+                <p><button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#AddBooking">Try it Now</button></p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/img5.jpg" alt="Img"  width=100%>
+            <div class="carousel-caption">
+                <h3>Hara Bhara Pyara Kebab</h3>
+                <p><button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#AddBooking">Try it Now</button></p>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+    </div>
+</div>
+
+    <!--- User Add New Booking Modal Popup --->
+    <div class="modal fade" id="AddBooking" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <form>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="AddB">Grab a Seat!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="firstname" placeholder="Guest First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastname" placeholder="Guest Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Guest Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="tel" class="form-control" id="tel" placeholder="YourContactNumber" maxlength="10"required></div>
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" id="Size" placeholder="Your Gang Size" maxlength="2"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Request" placeholder="AnySpecialRequest" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label  class="control-label">Date of Reservation</label></div>
+                                <div class="col-xs-6">
+                                    <input type="date" class="form-control" id="date" placeholder="MM/DD/YY" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label class="control-label">Time Slot Desired</label></div>
+                                <div class="col-xs-6">
+                                    <input type="time" class="form-control" id="time" placeholder="HH:MM:SS" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">I am not sure yet.</button>
+                        <button id="PlaceReservation" type="submit" class="btn btn-success" >Save Me a Place</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+<footer></footer>
+
+<!-- JavaScripts libraries-->
+<script type="text/javascript" src="scripts/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
+<script async src="scripts/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Shetty's  Diner</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/SD.ico">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+<br><br><br>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Shetty's Diner</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--end navbar -->
+
+
+        </div><!--end container-->
+    </nav>
+</header>
+
+<!--- Modify Reservation Modal Popup --->
+<div class="modal fade" id="Modify" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Modifyexample">Provide Your Email ID </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input id="inputid" type="email" class="form-control" id="Memail" placeholder="Guest Email Address" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <!--  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+                    <button type="button" class="btn btn-danger" onclick="location.href='Home.html'">Close</button>
+                    <button type="button" id = "btnModify" class="btn btn-primary" >Yes I Need To Modify</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br><br><br>
+<!--- Login Modal Popup --->
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="Loginexample">Are you Sure ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Click on Yes and we will log you out of the system</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Nope</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='Home.html'">Yes I am Sure</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">Modify Reservation</div>
+            <div class="panel-body">
+                <form>
+                        <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label  class="control-label">Customer First Name</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="fname" value="First Name" required></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label  class="control-label">Customer Last Name</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="lname" value="Last Name" required></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label class="control-label">Customer Email</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="email" class="form-control" id="Cemail" value="email@domain.com" required></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label class="control-label">Customer Contact #</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="tel" class="form-control" id="Ctel" value="1111111111" maxlength="10" required></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label class="control-label">Customer Party Size #</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="CPartySize" value="00" maxlength="2"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CRequest" value="Details Pending" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label class="control-label">Date of Reservation</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="date" class="form-control" id="Cdate" value="0000-00-00" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <label  class="control-label">Time Slot Desired</label></div>
+                                    <div class="col-xs-8">
+                                        <input type="time" class="form-control" id="Ctime" value="00:00" required>
+                                    </div>
+                                </div>
+                            </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <button type="button" class="btn btn-warning" onclick="location.href='Home.html'">Close</button>
+                <button id="btnConfirmModify" type="submit" class="btn btn-success " >Confirm Booking</button>
+                <p>*Reservations Modified Need to be confirmed by Management Before Being Approved</p>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<footer></footer>
+
+
+<!-- JavaScripts libraries-->
+<script type="text/javascript" src="scripts/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>k
+<script async src="scripts/modify.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('#Modify').modal('show');
+     
+   });
+
+</script>
+
+</body>
+
+</html>
